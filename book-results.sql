@@ -155,8 +155,6 @@ from Products
 where ReorderLevel >= (UnitsInStock+UnitsOnOrder) AND Discontinued=0
 go
 
---24 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
--- HAVEN'T COMPLETED!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 --25
 select top 3 ShipCountry, avg(Freight) as AverageFreight
@@ -241,7 +239,7 @@ go
 
 ---- ADVANCED
 
---32 ???? nz nesto ne stima
+--32 
 select * from
 (select *
 from OrderDetails 
@@ -281,15 +279,13 @@ where Convert(date,OrderDate)=EOMONTH(OrderDate)
 order by EmployeeID, OrderID
 go
 
---36 ??? ne sfakam sto e ova line items
-
 --37
 select top 2 percent  * 
 from Orders
 order by NEWID()
 go
 
---38, 39, 40 site se povrzani ????? mene mi e logicno da nema poveke pati povtoruvanje na OrderID
+--38, 39, 40 
 select OrderID, count(OrderID) as Counts
 from (
 select o.OrderID, Quantity--, COUNT(Quantity)
